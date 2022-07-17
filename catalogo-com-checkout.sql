@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Tempo de geração: 06-Jul-2020 às 14:54
--- Versão do servidor: 5.6.41-84.1
--- versão do PHP: 7.3.6
+-- Host: 127.0.0.1
+-- Tempo de geração: 16-Jul-2022 às 13:17
+-- Versão do servidor: 10.4.19-MariaDB
+-- versão do PHP: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `guiad946_catalogo`
+-- Banco de dados: `catalogo-com-checkout`
 --
 
 -- --------------------------------------------------------
@@ -202,9 +201,9 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`id`, `comprador`, `carrinho`, `frete`, `endereco_completo`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `estado`, `CEP`, `cod_transacao`, `tipo_pagamento`, `link_boleto`, `bandeira_cartao`, `final_cartao`, `valorTotal`, `status_pedido`, `status_pagamento`, `data_pedido`, `hora_pedido`) VALUES
-(1, 'c89756746414028605076@sandbox.pagseguro.com.br', '7W114IFxjP_f58babb29f0f5d1eb01603606e5d90d0', '', 'Avenida Brasilia, 123  Centro, Pinhalzinho - SC Cep:89870000', 'Avenida Brasilia', '123', '', 'Centro', 'Pinhalzinho', 'SC', '89870000', '7E941CB6-65D9-4123-84EA-F5CABF875BFF', 'creditCard', '', 'visa', '1111', '1,50', 'Aprovado', '', '29/05/2020', '21:05:56'),
-(2, 'c89756746414028605076@sandbox.pagseguro.com.br', 'V4CeNawAP6_f96a29787e345d52d57f68e9cc5bc307', '', 'Avenida Brasilia, 123  Centro, Pinhalzinho - SC Cep:89870000', 'Avenida Brasilia', '123', '', 'Centro', 'Pinhalzinho', 'SC', '89870000', 'F76FE8C8-96BC-4E0F-9224-343D296A71BA', 'boleto', 'https://sandbox.pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=84fe7a5c4a1b8a6cafea405584c881c4bad3c14f2f5918cd7669b7b91d6bf4272aae4c8528a9345d', '', '', '1,50', 'Aguardando', 'Aguardando', '29/05/2020', '21:06:29'),
-(3, 'c89756746414028605076@sandbox.pagseguro.com.br', 'ZNoUpC5S4V_2fce91c611eddc9354f00b3f3139a600', '10,00', 'Avenida Brasilia, 123  Centro, Pinhalzinho - SC Cep:89870000', 'Avenida Brasilia', '123', '', 'Centro', 'Pinhalzinho', 'SC', '89870000', 'C054F5BD-F655-43E6-9808-0278BB597080', 'boleto', 'https://sandbox.pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=6c58c9432ebb39c20855d75512baa2c69a4ed1f303365a4eb9dd06f8f78f9a79ef1102ab0b3be8c9', '', '', '46,00', 'Aguardando', 'Aguardando', '26/06/2020', '21:35:28');
+(1, 'jose.comprador@gmail.com', '7W114IFxjP_f58babb29f0f5d1eb01603606e5d90d0', '', 'Avenida Brasilia, 123  Centro, Pinhalzinho - SC Cep:89870000', 'Avenida Brasilia', '123', '', 'Centro', 'Pinhalzinho', 'SC', '89870000', '7E941CB6-65D9-4123-84EA-F5CABF875BFF', 'creditCard', '', 'visa', '1111', '1,50', 'Aprovado', '', '29/05/2020', '21:05:56'),
+(2, 'jose.comprador@gmail.com', 'V4CeNawAP6_f96a29787e345d52d57f68e9cc5bc307', '', 'Avenida Brasilia, 123  Centro, Pinhalzinho - SC Cep:89870000', 'Avenida Brasilia', '123', '', 'Centro', 'Pinhalzinho', 'SC', '89870000', 'F76FE8C8-96BC-4E0F-9224-343D296A71BA', 'boleto', 'https://sandbox.pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=84fe7a5c4a1b8a6cafea405584c881c4bad3c14f2f5918cd7669b7b91d6bf4272aae4c8528a9345d', '', '', '1,50', 'Aguardando', 'Aguardando', '29/05/2020', '21:06:29'),
+(3, 'jose.comprador@gmail.com', 'ZNoUpC5S4V_2fce91c611eddc9354f00b3f3139a600', '10,00', 'Avenida Brasilia, 123  Centro, Pinhalzinho - SC Cep:89870000', 'Avenida Brasilia', '123', '', 'Centro', 'Pinhalzinho', 'SC', '89870000', 'C054F5BD-F655-43E6-9808-0278BB597080', 'boleto', 'https://sandbox.pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=6c58c9432ebb39c20855d75512baa2c69a4ed1f303365a4eb9dd06f8f78f9a79ef1102ab0b3be8c9', '', '', '46,00', 'Aguardando', 'Aguardando', '26/06/2020', '21:35:28');
 
 -- --------------------------------------------------------
 
@@ -260,8 +259,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `playerID`, `login`, `senha`, `nome`, `data_nascimento`, `telefone`, `CPF`, `recuperaSenha`, `data_cadastro`) VALUES
-(1, '', 'dimitriteixeira@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Dimitri Teixeira', '25/09/1991', '(49) 98807-0996', '123.456.781-23', 'atosiq', '18/05/2020'),
-(3, '', 'c89756746414028605076@sandbox.pagseguro.com.br', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'José Comprador', '25/05/2020', '(49) 98807-0996', '221.119.447-85', '', '25/05/2020');
+(1, '', 'diegoramos23@outlook.com.br', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Diego Ramos Soares', '23/06/1986', '(49) 98807-0996', '123.456.781-23', 'atosiq', '18/05/2020'),
+(3, '', 'jose.comprador@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'José Comprador', '25/05/1991', '(49) 98807-0996', '221.119.447-85', '', '25/05/2020');
 
 -- --------------------------------------------------------
 
@@ -283,7 +282,7 @@ CREATE TABLE `usuarios_administrativos` (
 --
 
 INSERT INTO `usuarios_administrativos` (`id`, `nome`, `login`, `senha`, `recuperaSenha`, `telefone_contato`) VALUES
-(1, 'Teste da Silva', 'teste@gmail.com', '123', '', '');
+(1, 'Administrativo', 'teste@gmail.com', '123', '', '');
 
 --
 -- Índices para tabelas despejadas
